@@ -274,6 +274,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ziM-Z1-wJC" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="uZl-BZ-XPA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m2L-62-cuX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -294,6 +295,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zr6-W4-IVM"/>
+        <segue reference="CaD-3T-A95"/>
     </inferredMetricsTieBreakers>
 </document>

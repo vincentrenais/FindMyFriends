@@ -14,7 +14,6 @@
 @interface LoginVC () <UITextFieldDelegate>
 
 
-
 @end
 
 @implementation LoginVC
@@ -34,19 +33,8 @@
 
 - (IBAction)signUpButtonPressed:(UIButton *)sender
 {
-    LoginVC *loginVC = [[LoginVC alloc]init];
-    [self.navigationController presentViewController:loginVC animated:YES completion:nil];
-}
-
-
-- (void)presentSignupVC {
     SignUpVC *viewController = [[SignUpVC alloc] init];
-    viewController.delegate = self;
     [self.navigationController presentViewController:viewController animated:YES completion:nil];
-}
-
-- (void)signupVCDidSignup:(SignUpVC *)controller {
-    [self performSegueWithIdentifier:@"loginSegue" sender:nil];
 }
 
 

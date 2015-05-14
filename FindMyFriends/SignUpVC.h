@@ -14,6 +14,4 @@
 @property (nonatomic, strong) IBOutlet UITextField *passwordTF;
 @property (nonatomic, strong) IBOutlet UITextField *passwordAgainTF;
 
-@property (nonatomic,weak) id<Sign> delegate;
-
 @end

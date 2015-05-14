@@ -107,9 +107,7 @@
         }
         
         // Success!
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self.delegate signUpVCDidSignUp:self];
+        [self performSegueWithIdentifier:@"signUpSegue" sender:nil];       
     }];
 }
 
