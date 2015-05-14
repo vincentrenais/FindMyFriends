@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "Parse/Parse.h"
+#import "LoginVC.h"
+#import "MapVC.h"
+
+
 
 @interface AppDelegate ()
 
@@ -17,7 +22,45 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"FpS2z6gamN67rwIjMaBsrfjuYOgHvtYhlL2HfuhB"
+                  clientKey:@"glXMjT4QNEr4W360NQt38cA8uxKiIOaFggqOrKQK"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    LoginVC *loginVC = [storyBoard instantiateViewControllerWithIdentifier:@"loginVC"];
+//    
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    
+    if ([PFUser currentUser]) {
+        // Present wall straight-away
+        [self presentMapVCAnimated:NO];
+    }
     return YES;
+}
+
+//- (void)presentLoginVC {
+//    // Go to the Login page.
+//    LoginVC *loginVC = [[LoginVC alloc] init];
+//    [self.navigationController setViewControllers:@[ loginVC ] animated:NO];
+//}
+
+//- (void)loginVCDidLogin:(LoginVC *)controller {
+//    [self presentMapVCAnimated:YES];
+//}
+
+//- (void)presentMapVCAnimated:(BOOL)animated {
+//    MapVC *mapVC = [[MapVC alloc] init];
+//    [self.navigationController setViewControllers:@[ mapVC ] animated:animated];
+//}
+
+- (void)presentMapVCAnimated:(BOOL)animated {
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
