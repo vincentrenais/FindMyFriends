@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16EC8883660C3E65C3BC601D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC95911701ECDF0E149A3F54 /* libPods.a */; };
 		B747A59D1B02569300B5BCFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B747A59C1B02569300B5BCFA /* main.m */; };
 		B747A5A01B02569300B5BCFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B747A59F1B02569300B5BCFA /* AppDelegate.m */; };
 		B747A5A61B02569300B5BCFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B747A5A41B02569300B5BCFA /* Main.storyboard */; };
@@ -25,12 +26,13 @@
 		B747A5D31B02574000B5BCFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B747A5D21B02574000B5BCFA /* CoreGraphics.framework */; };
 		B747A5D51B02574900B5BCFA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B747A5D41B02574900B5BCFA /* CoreLocation.framework */; };
 		B747A5D71B02575000B5BCFA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B747A5D61B02575000B5BCFA /* MapKit.framework */; };
-		B747A5DA1B02577300B5BCFA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B747A5D81B02577300B5BCFA /* Bolts.framework */; };
 		B747A5DB1B02577300B5BCFA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B747A5D91B02577300B5BCFA /* Parse.framework */; };
 		B747A5DE1B025A1A00B5BCFA /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B747A5DD1B025A1A00B5BCFA /* LoginVC.m */; };
 		B747A5E11B025BA200B5BCFA /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B747A5E01B025BA200B5BCFA /* SignUpVC.m */; };
 		B747A5E41B02650200B5BCFA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B747A5E31B02650200B5BCFA /* User.m */; };
 		B7501CDA1B03D3C700046A15 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7501CD91B03D3C700046A15 /* MapVC.m */; };
+		B786BA511B04DD370097BA85 /* FacebookLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B786BA501B04DD370097BA85 /* FacebookLoginButton.m */; };
+		B786BA551B0534590097BA85 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B786BA541B0534590097BA85 /* ParseFacebookUtilsV4.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +69,6 @@
 		B747A5D21B02574000B5BCFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B747A5D41B02574900B5BCFA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B747A5D61B02575000B5BCFA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		B747A5D81B02577300B5BCFA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		B747A5D91B02577300B5BCFA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		B747A5DC1B025A1A00B5BCFA /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B747A5DD1B025A1A00B5BCFA /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
@@ -77,6 +78,12 @@
 		B747A5E31B02650200B5BCFA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = FindMyFriends/Model/User.m; sourceTree = "<group>"; };
 		B7501CD81B03D3C700046A15 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		B7501CD91B03D3C700046A15 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
+		B786BA4F1B04DD370097BA85 /* FacebookLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginButton.h; sourceTree = "<group>"; };
+		B786BA501B04DD370097BA85 /* FacebookLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginButton.m; sourceTree = "<group>"; };
+		B786BA541B0534590097BA85 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		DC95911701ECDF0E149A3F54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26EF35F67D8DBE0F12E0E53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FDBBB6E1E141F5ABFB9F5E77 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,13 +98,14 @@
 				B747A5CF1B02572400B5BCFA /* libsqlite3.dylib in Frameworks */,
 				B747A5CD1B02571900B5BCFA /* MobileCoreServices.framework in Frameworks */,
 				B747A5CB1B02570B00B5BCFA /* QuartzCore.framework in Frameworks */,
-				B747A5DA1B02577300B5BCFA /* Bolts.framework in Frameworks */,
 				B747A5C91B02570400B5BCFA /* Security.framework in Frameworks */,
 				B747A5C71B0256FC00B5BCFA /* StoreKit.framework in Frameworks */,
 				B747A5DB1B02577300B5BCFA /* Parse.framework in Frameworks */,
 				B747A5C51B0256EE00B5BCFA /* SystemConfiguration.framework in Frameworks */,
 				B747A5C31B0256E300B5BCFA /* AudioToolbox.framework in Frameworks */,
 				B747A5C11B0256CE00B5BCFA /* CFNetwork.framework in Frameworks */,
+				16EC8883660C3E65C3BC601D /* libPods.a in Frameworks */,
+				B786BA551B0534590097BA85 /* ParseFacebookUtilsV4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +127,7 @@
 				B747A59A1B02569300B5BCFA /* Supporting Files */,
 				B747A5B31B02569400B5BCFA /* FindMyFriendsTests */,
 				B747A5981B02569300B5BCFA /* Products */,
+				E33C565AC1CF333ACF6FDC02 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +150,8 @@
 				B747A5A91B02569300B5BCFA /* LaunchScreen.xib */,
 				B747A5E51B02650D00B5BCFA /* Model */,
 				B7F8DCF91B029F0400247B8D /* Controllers */,
+				B786BA4F1B04DD370097BA85 /* FacebookLoginButton.h */,
+				B786BA501B04DD370097BA85 /* FacebookLoginButton.m */,
 			);
 			path = FindMyFriends;
 			sourceTree = "<group>";
@@ -189,7 +200,7 @@
 				B747A5D41B02574900B5BCFA /* CoreLocation.framework */,
 				B747A5D21B02574000B5BCFA /* CoreGraphics.framework */,
 				B747A5D01B02572E00B5BCFA /* libz.1.1.3.dylib */,
-				B747A5D81B02577300B5BCFA /* Bolts.framework */,
+				B786BA541B0534590097BA85 /* ParseFacebookUtilsV4.framework */,
 				B747A5D91B02577300B5BCFA /* Parse.framework */,
 				B747A5CE1B02572400B5BCFA /* libsqlite3.dylib */,
 				B747A5CC1B02571900B5BCFA /* MobileCoreServices.framework */,
@@ -199,6 +210,7 @@
 				B747A5C41B0256EE00B5BCFA /* SystemConfiguration.framework */,
 				B747A5C21B0256E300B5BCFA /* AudioToolbox.framework */,
 				B747A5C01B0256CE00B5BCFA /* CFNetwork.framework */,
+				DC95911701ECDF0E149A3F54 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,6 +236,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		E33C565AC1CF333ACF6FDC02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E26EF35F67D8DBE0F12E0E53 /* Pods.debug.xcconfig */,
+				FDBBB6E1E141F5ABFB9F5E77 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,9 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B747A5BA1B02569400B5BCFA /* Build configuration list for PBXNativeTarget "FindMyFriends" */;
 			buildPhases = (
+				B13D9A2A38EAE0816144D7A1 /* Check Pods Manifest.lock */,
 				B747A5931B02569300B5BCFA /* Sources */,
 				B747A5941B02569300B5BCFA /* Frameworks */,
 				B747A5951B02569300B5BCFA /* Resources */,
+				C794B04050683CA239B2955F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,6 +342,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B13D9A2A38EAE0816144D7A1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C794B04050683CA239B2955F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B747A5931B02569300B5BCFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -327,6 +383,7 @@
 				B747A5E41B02650200B5BCFA /* User.m in Sources */,
 				B747A5E11B025BA200B5BCFA /* SignUpVC.m in Sources */,
 				B747A5A01B02569300B5BCFA /* AppDelegate.m in Sources */,
+				B786BA511B04DD370097BA85 /* FacebookLoginButton.m in Sources */,
 				B7501CDA1B03D3C700046A15 /* MapVC.m in Sources */,
 				B747A59D1B02569300B5BCFA /* main.m in Sources */,
 				B747A5DE1B025A1A00B5BCFA /* LoginVC.m in Sources */,
@@ -453,6 +510,7 @@
 		};
 		B747A5BB1B02569400B5BCFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E26EF35F67D8DBE0F12E0E53 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -467,6 +525,7 @@
 		};
 		B747A5BC1B02569400B5BCFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDBBB6E1E141F5ABFB9F5E77 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (

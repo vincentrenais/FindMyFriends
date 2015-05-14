@@ -7,9 +7,11 @@
 //
 
 #import <Parse/Parse.h>
-
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import "LoginVC.h"
 #import "SignUpVC.h"
+#import "FBSDKLoginButton.h"
+
 
 @interface LoginVC () <UITextFieldDelegate>
 
@@ -23,7 +25,86 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    if ([FBSDKAccessToken currentAccessToken]) {
+        
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
+    
+    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    
+    self.loginButton.delegate = self;
+    
+    [self _loadData];
+    
 }
+
+- (void)_loginWithFacebook {
+    // Set permissions required from the facebook user account
+    NSArray *permissionsArray = @[ @"public_profile", @"email", @"user_friends" ];
+    
+    // Login PFUser using Facebook
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
+}
+
+
+- (void)_loadData {
+    // ...
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookID = userData[@"id"];
+            NSString *name = userData[@"name"];
+            NSString *location = userData[@"location"][@"name"];
+            NSString *gender = userData[@"gender"];
+            NSString *birthday = userData[@"birthday"];
+            NSString *relationship = userData[@"relationship_status"];
+            
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+            
+            // Now add the data to the UI elements
+            // ...
+        }
+    }];
+}
+
+- (void)          loginButton:	(FBSDKLoginButton *)loginButton
+        didCompleteWithResult:	(FBSDKLoginManagerLoginResult *)result
+                        error:	(NSError *)error
+{
+    NSLog(@"User Logged In");
+    
+    if ((error) != nil)
+    {
+        NSLog(@"Error received"); // Process error
+    }
+    else {
+        // If you ask for multiple permissions at once, you
+        // should check if specific permissions missing
+        NSLog(@"%@",self.loginButton.readPermissions);
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
+    
+    
+}
+
+
+
+- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
+{
+    
+}
+
 
 - (IBAction)loginButtonPressed:(UIButton *)sender
 {
@@ -96,7 +177,6 @@
 //        self.activityViewVisible = NO;
         
         if (user) {
-//            [self.delegate LoginVCDidLogin:self];
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         } else {
             // Didn't get a user.
@@ -123,6 +203,8 @@
         }
     }];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
