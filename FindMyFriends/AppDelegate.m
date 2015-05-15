@@ -11,7 +11,7 @@
 #import "LoginVC.h"
 #import "MapVC.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 
 
@@ -25,47 +25,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [FBSDKLoginButton class];
-    
-    [Parse enableLocalDatastore];
-    
     // Initialize Parse.
     [Parse setApplicationId:@"FpS2z6gamN67rwIjMaBsrfjuYOgHvtYhlL2HfuhB"
                   clientKey:@"glXMjT4QNEr4W360NQt38cA8uxKiIOaFggqOrKQK"];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    if ([PFUser currentUser]) {
-        // Present wall straight-away
-        [self presentMapVCAnimated:NO];
-    
-    [PFFacebookUtils initializeFacebook];
-        
-    }
-    
-    
-    
-    // Override point for customization after application launch.
-
-
 
     return YES;
-}
-
-
-- (void)presentMapVCAnimated:(BOOL)animated {
-    
-}
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
 }
 
 
