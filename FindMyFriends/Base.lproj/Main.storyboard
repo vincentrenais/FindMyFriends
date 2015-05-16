@@ -64,15 +64,22 @@
                                     <action selector="loginButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nAI-VE-0xS"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3r-1k-9qy" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="16" y="357" width="288" height="46"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="pNr-Oa-aT1" secondAttribute="bottom" constant="36" id="1XA-db-Aty"/>
                             <constraint firstItem="6eQ-dE-Hbc" firstAttribute="trailing" secondItem="obo-b6-6tq" secondAttribute="trailing" id="4Qd-cH-iYA"/>
+                            <constraint firstItem="p3r-1k-9qy" firstAttribute="top" secondItem="Bfr-RB-kGt" secondAttribute="bottom" constant="47" id="BS0-AF-aVd"/>
                             <constraint firstItem="obo-b6-6tq" firstAttribute="leading" secondItem="6eQ-dE-Hbc" secondAttribute="leading" id="DK0-Y7-DiE"/>
                             <constraint firstItem="kUA-Ro-RjM" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="MKk-DW-LO8"/>
+                            <constraint firstItem="p3r-1k-9qy" firstAttribute="leading" secondItem="obo-b6-6tq" secondAttribute="leading" id="OFH-uT-sRh"/>
                             <constraint firstItem="6eQ-dE-Hbc" firstAttribute="top" secondItem="kUA-Ro-RjM" secondAttribute="bottom" constant="61" id="QGw-Cc-eKf"/>
                             <constraint firstItem="pNr-Oa-aT1" firstAttribute="leading" secondItem="obo-b6-6tq" secondAttribute="leading" id="RlZ-1K-ykP"/>
+                            <constraint firstItem="pNr-Oa-aT1" firstAttribute="top" secondItem="p3r-1k-9qy" secondAttribute="bottom" constant="99" id="Sg4-4V-0b4"/>
                             <constraint firstItem="obo-b6-6tq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Tf1-yT-hWW"/>
                             <constraint firstItem="6eQ-dE-Hbc" firstAttribute="trailing" secondItem="kUA-Ro-RjM" secondAttribute="trailing" id="WVv-jt-XMk"/>
                             <constraint firstItem="Bfr-RB-kGt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="99" id="auL-mL-mO7"/>
@@ -82,10 +89,12 @@
                             <constraint firstItem="Bfr-RB-kGt" firstAttribute="top" secondItem="obo-b6-6tq" secondAttribute="bottom" constant="19" id="kga-d3-Gcf"/>
                             <constraint firstItem="pNr-Oa-aT1" firstAttribute="trailing" secondItem="obo-b6-6tq" secondAttribute="trailing" id="pCR-de-GQn"/>
                             <constraint firstItem="kUA-Ro-RjM" firstAttribute="leading" secondItem="6eQ-dE-Hbc" secondAttribute="leading" id="qsW-Op-NZD"/>
+                            <constraint firstItem="p3r-1k-9qy" firstAttribute="trailing" secondItem="obo-b6-6tq" secondAttribute="trailing" id="tUr-Zd-lH0"/>
                             <constraint firstItem="Bfr-RB-kGt" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="280" id="vFU-23-owH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="p3r-1k-9qy" id="Oe0-Uw-fQh"/>
                         <outlet property="passwordTF" destination="obo-b6-6tq" id="Qr3-d2-U5B"/>
                         <outlet property="usernameTF" destination="6eQ-dE-Hbc" id="fR1-sk-EwX"/>
                         <segue destination="ziM-Z1-wJC" kind="modal" identifier="loginSegue" modalTransitionStyle="crossDissolve" id="CaD-3T-A95"/>
@@ -132,10 +141,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="f0W-EJ-elQ" id="mIa-HP-0Z3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0F-jo-FY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="625"/>
+            <point key="canvasLocation" x="1971" y="625"/>
         </scene>
         <!--List of friends-->
         <scene sceneID="tCy-5g-tXM">

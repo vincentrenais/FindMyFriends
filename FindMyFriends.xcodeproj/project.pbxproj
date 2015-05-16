@@ -239,6 +239,7 @@
 				TargetAttributes = {
 					B747A5961B02569300B5BCFA = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RPSV3Q2499;
 					};
 					B747A5AF1B02569400B5BCFA = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -455,6 +456,8 @@
 			baseConfigurationReference = E26EF35F67D8DBE0F12E0E53 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -511,6 +514,7 @@
 					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -519,6 +523,8 @@
 			baseConfigurationReference = FDBBB6E1E141F5ABFB9F5E77 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -575,6 +581,7 @@
 					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

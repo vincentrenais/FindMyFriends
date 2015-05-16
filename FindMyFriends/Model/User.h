@@ -11,7 +11,8 @@
 @interface User : NSObject
 
 @property (strong,nonatomic) NSString *userName;
-@property (strong,nonatomic) NSString *userPassword;
-@property (strong,nonatomic) NSNumber *latitude;
-@property (strong,nonatomic) NSNumber *longitude;
+@property (strong,nonatomic) NSURL *userPicture;
+@property (nonatomic) NSNumber *latitude;
+@property (nonatomic) NSNumber *longitude;
+
 @end

@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import "Parse/Parse.h"
-#import "LoginVC.h"
-#import "MapVC.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
+
+// Facebook
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+// Parse
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import "Parse/Parse.h"
 
 
 @interface AppDelegate ()
@@ -24,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [FBSDKLoginButton class];
     
     // Initialize Parse.
     [Parse setApplicationId:@"FpS2z6gamN67rwIjMaBsrfjuYOgHvtYhlL2HfuhB"
@@ -31,8 +35,20 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
+    
 
-    return YES;
+
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 
@@ -52,6 +68,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    
     [FBSDKAppEvents activateApp];
 }
 

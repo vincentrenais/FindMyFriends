@@ -9,9 +9,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+#import "User.h"
 
 
-@interface MapVC : UIViewController
+@interface MapVC : UIViewController <MKMapViewDelegate,CLLocationManagerDelegate>
 
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong,nonatomic) CLLocationManager *locationManager;
 
 @end

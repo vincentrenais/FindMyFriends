@@ -6,18 +6,14 @@
 //  Copyright (c) 2015 Vincent Renais. All rights reserved.
 //
 
-#import "LoginVC.h"
-#import "SignUpVC.h"
-
 
 // Parse frameworks
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
-
-//Facebook frameworks
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "LoginVC.h"
+#import "SignUpVC.h"
+#import "User.h"
 
 
 @interface LoginVC () <UITextFieldDelegate>
@@ -27,13 +23,79 @@
 
 @implementation LoginVC
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if ([FBSDKAccessToken currentAccessToken])
+    {
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
+       self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+       self.loginButton.delegate = self;
     
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+
 }
 
+
+- (void)    loginButton:	(FBSDKLoginButton *)loginButton
+  didCompleteWithResult:	(FBSDKLoginManagerLoginResult *)result
+                  error:	(NSError *)error
+{
+    [PFFacebookUtils logInInBackgroundWithAccessToken:result.token
+                                                block:^(PFUser *user, NSError *error)
+    {
+        if (!user)
+        {
+            NSLog(@"Uh oh. There was an error logging in.");
+        } else
+        {
+            NSLog(@"User logged in through Facebook!");
+            
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"/me?fields=email,name,picture" parameters:nil]
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
+            {
+                 if (!error)
+                 {
+                     User *currentUser = [[User alloc]init];
+                     CLLocation *location = [self.locationManager location];
+                     currentUser.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
+                     currentUser.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
+                     user[@"email"] = result[@"email"];
+                     user[@"name"] = result[@"name"];
+                     user[@"picture"] = result[@"picture"];
+                     user[@"latitude"] = currentUser.latitude;
+                     user[@"longitude"] = currentUser.longitude;
+                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+                     
+                     {
+                         if (succeeded)
+                         {
+                             // The object has been saved.
+                             NSLog(@"Saved to Parse.");
+                             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                         } else
+                         {
+                             // There was a problem, check error.description
+                             NSLog(@"%@", error.description);
+                         }
+                     }];
+                 }
+            }];
+        }
+    }];
+}
+
+
+
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
+{
+    
+}
 
 - (IBAction)loginButtonPressed:(UIButton *)sender
 {
@@ -48,7 +110,8 @@
 }
 
 
-- (void)processFieldEntries {
+- (void)processFieldEntries
+{
     // Get the username text, store it in the app delegate for now
     NSString *username = self.usernameTF.text;
     NSString *password = self.passwordTF.text;
@@ -60,32 +123,39 @@
     BOOL textError = NO;
     
     // Messaging nil will return 0, so these checks implicitly check for nil text.
-    if (username.length == 0 || password.length == 0) {
+    if (username.length == 0 || password.length == 0)
+    {
         textError = YES;
         
         // Set up the keyboard for the first field missing input:
-        if (password.length == 0) {
+        if (password.length == 0)
+        {
             [self.passwordTF becomeFirstResponder];
         }
-        if (username.length == 0) {
+        if (username.length == 0)
+        {
             [self.usernameTF becomeFirstResponder];
         }
     }
     
-    if ([username length] == 0) {
+    if ([username length] == 0)
+    {
         textError = YES;
         errorText = [errorText stringByAppendingString:noUsernameText];
     }
     
-    if ([password length] == 0) {
+    if ([password length] == 0)
+    {
         textError = YES;
-        if ([username length] == 0) {
+        if ([username length] == 0)
+        {
             errorText = [errorText stringByAppendingString:errorTextJoin];
         }
         errorText = [errorText stringByAppendingString:noPasswordText];
     }
     
-    if (textError) {
+    if (textError)
+    {
         errorText = [errorText stringByAppendingString:errorTextEnding];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:errorText
                                                             message:nil
@@ -96,27 +166,24 @@
         return;
     }
     
-    // Everything looks good; try to log in.
-    
-    // Set up activity view
-//    self.activityViewVisible = YES;
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
-        // Tear down the activity view in all cases.
-//        self.activityViewVisible = NO;
-        
-        if (user) {
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error)
+    {
+        if (user)
+        {
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-        } else {
+        } else
+        {
             // Didn't get a user.
             NSLog(@"%s didn't get a user!", __PRETTY_FUNCTION__);
             
             NSString *alertTitle = nil;
             
-            if (error) {
+            if (error)
+            {
                 // Something else went wrong
                 alertTitle = [error userInfo][@"error"];
-            } else {
+            } else
+            {
                 // the username or password is probably wrong.
                 alertTitle = @"Couldn’t log in:\nThe username or password were wrong.";
             }
@@ -136,19 +203,11 @@
 
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - Navigation
-/*
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
