@@ -7,7 +7,7 @@
 //
 
 #import "MapVC.h"
-
+#import "VRMapAnnotation.h"
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -56,14 +56,15 @@
                 NSDictionary *picture = user[@"picture"];
                 NSDictionary *data = picture[@"data"];
                 NSString *url = data [@"url"];
-                NSURL *userPicture = [NSURL URLWithString:url];
-                self.userPhoto = [[NSData alloc] initWithContentsOfURL:userPicture];
+//                NSURL *userPicture = [NSURL URLWithString:url];
+//                self.userPhoto = [[NSData alloc] initWithContentsOfURL:userPicture];
                 NSNumber *latitude = user [@"latitude"];
                 NSNumber *longitude = user [@"longitude"];
                 CLLocationCoordinate2D userCoordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-                MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
+                VRMapAnnotation *myAnnotation = [[VRMapAnnotation alloc]init];
                 myAnnotation.coordinate = userCoordinate;
                 myAnnotation.title = user [@"name"];
+                myAnnotation.url = url;
                 [self.mapView addAnnotation:myAnnotation];
             }
         }
@@ -82,18 +83,25 @@
     if ([annotation isKindOfClass:[MKPointAnnotation class]])
     {
         // Try to dequeue an existing pin view first.
-        MKAnnotationView *pinView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        MKAnnotationView *pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
         if (!pinView)
         {
             // The following creates a pin view if an existing pin view was not available.
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             //pinView.animatesDrop = YES;
             pinView.canShowCallout = YES;
-            pinView.image = [UIImage imageWithData:self.userPhoto];
-        } else
-        {
-            pinView.annotation = annotation;
+            
         }
+        pinView.annotation = annotation;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([annotation isKindOfClass:[VRMapAnnotation class]])
+            {
+                VRMapAnnotation *myAnnotation = (VRMapAnnotation *)annotation;
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:myAnnotation.url]];
+                UIImage *image = [UIImage imageWithData:data];
+                pinView.image = image;
+            }
+        });
         return pinView;
     }
     return nil;
@@ -102,10 +110,8 @@
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     // A dispatch_once token is used so the location is only updated once.
-    static dispatch_once_t token;
-    dispatch_once(&token, ^{
+
         [self.mapView setRegion:MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.01f, 0.01f)) animated:YES];
-    });
 }
 
 @end
