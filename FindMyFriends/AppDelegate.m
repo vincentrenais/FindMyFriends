@@ -17,6 +17,8 @@
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import "Parse/Parse.h"
 
+#import "MapVC.h"
+
 
 @interface AppDelegate ()
 
@@ -38,6 +40,19 @@
     
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     
+
+    if ([PFUser currentUser])
+    {
+        
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        
+        MapVC *mapVC = (MapVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"Map"];
+        
+        UINavigationController *mapNC = [[UINavigationController alloc]initWithRootViewController:mapVC];
+        
+        //set the root controller to it
+        self.window.rootViewController = mapNC;
+    }
 
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application

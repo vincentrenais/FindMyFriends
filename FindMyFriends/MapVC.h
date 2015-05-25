@@ -19,4 +19,6 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong,nonatomic) CLLocationManager *locationManager;
 
+- (IBAction)logoutButton:(UIBarButtonItem *)sender;
+
 @end

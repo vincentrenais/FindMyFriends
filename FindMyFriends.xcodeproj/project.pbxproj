@@ -19,7 +19,9 @@
 		B747A5E41B02650200B5BCFA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B747A5E31B02650200B5BCFA /* User.m */; };
 		B7501CDA1B03D3C700046A15 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7501CD91B03D3C700046A15 /* MapVC.m */; };
 		B786BA591B053FC90097BA85 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B786BA581B053FC90097BA85 /* MapKit.framework */; };
-		B7E84C8D1B0BC6DF009456B3 /* VRMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E84C8C1B0BC6DF009456B3 /* VRMapAnnotation.m */; };
+		B7C91D5C1B12C101002DBE2F /* ListOfFriendsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C91D5B1B12C101002DBE2F /* ListOfFriendsTVC.m */; };
+		B7E84C8D1B0BC6DF009456B3 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E84C8C1B0BC6DF009456B3 /* MapAnnotation.m */; };
+		B7E84C931B0BE191009456B3 /* MapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E84C921B0BE191009456B3 /* MapAnnotationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +55,12 @@
 		B7501CD81B03D3C700046A15 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		B7501CD91B03D3C700046A15 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
 		B786BA581B053FC90097BA85 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		B7E84C8B1B0BC6DF009456B3 /* VRMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRMapAnnotation.h; sourceTree = "<group>"; };
-		B7E84C8C1B0BC6DF009456B3 /* VRMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRMapAnnotation.m; sourceTree = "<group>"; };
+		B7C91D5A1B12C101002DBE2F /* ListOfFriendsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFriendsTVC.h; sourceTree = "<group>"; };
+		B7C91D5B1B12C101002DBE2F /* ListOfFriendsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFriendsTVC.m; sourceTree = "<group>"; };
+		B7E84C8B1B0BC6DF009456B3 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		B7E84C8C1B0BC6DF009456B3 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		B7E84C911B0BE191009456B3 /* MapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationView.h; sourceTree = "<group>"; };
+		B7E84C921B0BE191009456B3 /* MapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationView.m; sourceTree = "<group>"; };
 		DC95911701ECDF0E149A3F54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26EF35F67D8DBE0F12E0E53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FDBBB6E1E141F5ABFB9F5E77 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,8 +153,10 @@
 			children = (
 				B747A5E21B02650200B5BCFA /* User.h */,
 				B747A5E31B02650200B5BCFA /* User.m */,
-				B7E84C8B1B0BC6DF009456B3 /* VRMapAnnotation.h */,
-				B7E84C8C1B0BC6DF009456B3 /* VRMapAnnotation.m */,
+				B7E84C8B1B0BC6DF009456B3 /* MapAnnotation.h */,
+				B7E84C8C1B0BC6DF009456B3 /* MapAnnotation.m */,
+				B7E84C911B0BE191009456B3 /* MapAnnotationView.h */,
+				B7E84C921B0BE191009456B3 /* MapAnnotationView.m */,
 			);
 			name = Model;
 			path = ..;
@@ -166,6 +174,8 @@
 		B7F8DCF91B029F0400247B8D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B7C91D5A1B12C101002DBE2F /* ListOfFriendsTVC.h */,
+				B7C91D5B1B12C101002DBE2F /* ListOfFriendsTVC.m */,
 				B7501CD81B03D3C700046A15 /* MapVC.h */,
 				B7501CD91B03D3C700046A15 /* MapVC.m */,
 				B7F8DCFA1B029F1400247B8D /* Login */,
@@ -330,9 +340,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B747A5E41B02650200B5BCFA /* User.m in Sources */,
+				B7C91D5C1B12C101002DBE2F /* ListOfFriendsTVC.m in Sources */,
 				B747A5E11B025BA200B5BCFA /* SignUpVC.m in Sources */,
+				B7E84C931B0BE191009456B3 /* MapAnnotationView.m in Sources */,
 				B747A5A01B02569300B5BCFA /* AppDelegate.m in Sources */,
-				B7E84C8D1B0BC6DF009456B3 /* VRMapAnnotation.m in Sources */,
+				B7E84C8D1B0BC6DF009456B3 /* MapAnnotation.m in Sources */,
 				B7501CDA1B03D3C700046A15 /* MapVC.m in Sources */,
 				B747A59D1B02569300B5BCFA /* main.m in Sources */,
 				B747A5DE1B025A1A00B5BCFA /* LoginVC.m in Sources */,

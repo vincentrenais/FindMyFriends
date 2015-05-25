@@ -8,7 +8,7 @@
 
 #import <MapKit/MapKit.h>
 
-@interface VRMapAnnotation : MKPointAnnotation
+@interface MapAnnotation : MKPointAnnotation
 
 @property (nonatomic, copy) NSString *url;
 

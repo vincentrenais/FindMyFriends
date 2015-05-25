@@ -28,18 +28,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if ([FBSDKAccessToken currentAccessToken])
-    {
-        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-    }
        self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
        self.loginButton.delegate = self;
     
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
-
+    
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+}
 
 - (void)    loginButton:	(FBSDKLoginButton *)loginButton
   didCompleteWithResult:	(FBSDKLoginManagerLoginResult *)result
@@ -198,15 +199,6 @@
             [self.usernameTF becomeFirstResponder];
         }
     }];
-}
-
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
